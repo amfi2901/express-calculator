@@ -9,7 +9,12 @@ pipeline {
 				sh 'npm install'
 				}
 		}
-
+		stage('Tests') {
+			steps {
+				sh 'npm run unit-test'
+				sh 'npm run integration-test'
+				}
+		}
 	}
 }
 
