@@ -16,7 +16,10 @@ pipeline {
 		}
 		stage('Integration tests') {
 			when {
-				branch 'develop'
+				anyOf {
+					branch 'develop'
+					branch 'main'
+					}
 				}
 			steps {
 				sh 'npm run integration-test'
