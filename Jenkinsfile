@@ -9,9 +9,16 @@ pipeline {
 				sh 'npm install'
 				}
 		}
-		stage('Tests') {
+		stage('Unit tests'){
+			steps{
+				sh 'npm run unit-test'	 
+				}
+		}
+		stage('Integration tests') {
+			when {
+				branch 'develop'
+				}
 			steps {
-				sh 'npm run unit-test'
 				sh 'npm run integration-test'
 				}
 		}
