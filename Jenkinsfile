@@ -31,7 +31,7 @@ pipeline {
 				}
 			steps {
 				script {
-					docker.withRegistry('https://registry.hub.docker.com', 'docker_cred'){
+					docker.withRegistry('https://registry.hub.docker.com', 'dockercred'){
 						def image = docker.build("amfi2901/express-calculator:${env.BUILD_ID}")
 						image.push()
 						}
