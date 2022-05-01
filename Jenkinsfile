@@ -26,9 +26,9 @@ pipeline {
 				}
 		}
 		stage('Delivery') {
-			//when {
-			//	branch 'main'
-			//	}
+			when {
+				branch 'main'
+				}
 			steps {
 				script {
 					docker.withRegistry('https://registry.hub.docker.com', 'dockercred'){
