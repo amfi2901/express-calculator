@@ -26,14 +26,14 @@ pipeline {
 				}
 		}
 		stage('Delivery') {
-			when {
-				branch 'main'
-				}
+			//when {
+			//	branch 'main'
+			//	}
 			steps {
 				script {
 					docker.withRegistry('https://registry.hub.docker.com', 'docker_cred'){
-						def image = docker.build("amfi2901/express-calculator:${env.BUILD_ID}")
-						image.push()
+			//			def image = docker.build("amfi2901/express-calculator:${env.BUILD_ID}")
+			//			image.push()
 						}
 					}
 				}
